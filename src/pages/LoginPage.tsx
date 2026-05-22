@@ -1,0 +1,54 @@
+import { FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "../store/authStore";
+
+export default function LoginPage() {
+  const navigate = useNavigate();
+  const login = useAuthStore((state) => state.login);
+  const [nim, setNim] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    const success = login(nim, password);
+
+    if (success) {
+      navigate("/");
+    } else {
+      setError("NIM atau password salah");
+    }
+  };
+
+  return (
+    <div className="mx-auto max-w-md card">
+      <h2 className="mb-4 text-2xl font-bold">Login</h2>
+
+      {error && <p className="mb-3 rounded bg-red-100 p-2 text-red-700">{error}</p>}
+
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <input
+          className="input"
+          placeholder="NIM"
+          value={nim}
+          onChange={(e) => setNim(e.target.value)}
+        />
+
+        <input
+          className="input"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <button className="btn btn-primary w-full">Login</button>
+      </form>
+
+      <p className="mt-4 text-sm text-gray-500">
+        NIM: 24090122 | Password: admin123
+      </p>
+    </div>
+  );
+}
