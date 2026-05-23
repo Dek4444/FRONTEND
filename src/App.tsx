@@ -11,8 +11,9 @@ import BiodataPage from "./pages/BiodataPage";
 export default function App() {
   return (
     <Routes>
+      <Route path="/login" element={<LoginPage />} />
+
       <Route element={<Layout />}>
-        <Route path="/login" element={<LoginPage />} />
         <Route path="/biodata" element={<BiodataPage />} />
 
         <Route element={<ProtectedRoute />}>

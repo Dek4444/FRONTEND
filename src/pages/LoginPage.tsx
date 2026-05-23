@@ -21,11 +21,18 @@ export default function LoginPage() {
     }
   };
 
-  return (
-    <div className="mx-auto max-w-md card">
-      <h2 className="mb-4 text-2xl font-bold">Login</h2>
+return (
+  <div className="flex min-h-screen flex-col items-center bg-gray-100 px-4">
+    <div className="mt-8 rounded bg-gray-200 px-12 py-4 text-center">
+      <h1 className="text-2xl font-bold text-blue-700">EVENTMS</h1>
+    </div>
 
-      {error && <p className="mb-3 rounded bg-red-100 p-2 text-red-700">{error}</p>}
+    <div className="mt-28 w-full max-w-xl rounded-lg bg-white p-8 shadow">
+      <h2 className="mb-6 text-center text-2xl font-bold">Login</h2>
+
+      {error && (
+        <p className="mb-3 rounded bg-red-100 p-2 text-red-700">{error}</p>
+      )}
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -46,9 +53,14 @@ export default function LoginPage() {
         <button className="btn btn-primary w-full">Login</button>
       </form>
 
-      <p className="mt-4 text-sm text-gray-500">
+      <p className="mt-4 text-center text-sm text-gray-500">
         NIM: 24090122 | Password: admin123
       </p>
     </div>
-  );
+
+    <p className="mt-auto pb-6 text-sm text-gray-500">
+      © 2026 EVENTMS - Sistem Manajemen Event
+    </p>
+  </div>
+);
 }
