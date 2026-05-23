@@ -11,37 +11,51 @@ export default function Layout() {
   };
 
   return (
-    <div>
-      <nav className="bg-white shadow">
-        <div className="mx-auto flex max-w-6xl items-center justify-between p-4">
-          <Link to="/" className="text-xl font-bold text-blue-700">
-            EVENTMS
+    <div className="min-h-screen bg-gray-100">
+      <aside className="fixed left-0 top-0 h-full w-64 bg-white shadow">
+        <div className="border-b p-6">
+          <h1 className="text-2xl font-bold text-blue-700">EVENTMS</h1>
+          <p className="text-sm text-gray-500">Event Management</p>
+        </div>
+
+        <nav className="flex flex-col gap-1 p-4">
+          {isLogin && (
+            <>
+              <Link to="/" className="rounded px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
+                Dashboard
+              </Link>
+              <Link to="/categories" className="rounded px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
+                Categories
+              </Link>
+              <Link to="/pembicara" className="rounded px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
+                Pembicara
+              </Link>
+              <Link to="/events" className="rounded px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
+                Events
+              </Link>
+            </>
+          )}
+
+          <Link to="/biodata" className="rounded px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
+            Biodata
           </Link>
 
-          <div className="flex flex-wrap items-center gap-4">
-            {isLogin && (
-              <>
-                <Link to="/" className="hover:text-blue-600">Dashboard</Link>
-                <Link to="/categories" className="hover:text-blue-600">Categories</Link>
-                <Link to="/pembicara" className="hover:text-blue-600">Pembicara</Link>
-                <Link to="/events" className="hover:text-blue-600">Events</Link>
-              </>
-            )}
+          {isLogin ? (
+            <button
+              onClick={handleLogout}
+              className="mt-4 rounded px-4 py-2 text-left text-red-600 hover:bg-red-50"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link to="/login" className="rounded px-4 py-2 hover:bg-blue-50 hover:text-blue-600">
+              Login
+            </Link>
+          )}
+        </nav>
+      </aside>
 
-            <Link to="/biodata" className="hover:text-blue-600">Biodata</Link>
-
-            {isLogin ? (
-              <button onClick={handleLogout} className="text-red-600 hover:text-red-700">
-                Logout
-              </button>
-            ) : (
-              <Link to="/login" className="hover:text-blue-600">Login</Link>
-            )}
-          </div>
-        </div>
-      </nav>
-
-      <main className="mx-auto max-w-6xl p-6">
+      <main className="ml-64 min-h-screen p-6">
         <Outlet />
       </main>
     </div>
