@@ -11,11 +11,11 @@ export default function BiodataPage() {
           </tr>
           <tr className="border-b">
             <td className="bg-gray-100 p-3 font-semibold">Nama</td>
-            <td className="p-3">Deka Setiawan</td>
+            <td className="p-3">Aurelio Deca Setyawan</td>
           </tr>
           <tr className="border-b">
             <td className="bg-gray-100 p-3 font-semibold">Program Studi</td>
-            <td className="p-3">Sistem Informasi</td>
+            <td className="p-3">Informatic Engineering</td>
           </tr>
           <tr>
             <td className="bg-gray-100 p-3 font-semibold">Informasi Lainnya</td>
