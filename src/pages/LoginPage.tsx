@@ -23,7 +23,7 @@ export default function LoginPage() {
 
 return (
   <div className="flex min-h-screen flex-col items-center bg-gray-100 px-4">
-    <div className="mt-8 rounded bg-gray-200 px-12 py-4 text-center">
+    <div className="mt-8 bg-transparent px-12 py-4 text-center">
       <h1 className="text-2xl font-bold text-blue-700">EVENTMS</h1>
     </div>
 
